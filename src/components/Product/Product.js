@@ -2,25 +2,22 @@ import styles from './Product.module.scss';
 import ProductImage from '../ProductImage/ProductImage';
 import ProductForm from '../ProductForm/ProductForm';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 
 const Product = (props) => {
 	const [currentColor, setCurrentColor] = useState(props.colors[0]);
 	const [currentSize, setCurrentSize] = useState(props.sizes[0].name);
 
-	const getPrice = () => {
+	const priceUpdated = useMemo(() => {
 		const currentElement = props.sizes.find(
 			(item) => item.name === currentSize
 		);
-
 		if (currentElement) {
-			let price;
-			price = props.basePrice + currentElement.additionalPrice;
-			return price;
+			return props.basePrice + currentElement.additionalPrice;
 		}
-	};
+	}, [currentSize, props.sizes, props.basePrice]);
 
-	const dataProduct = [props.title, getPrice(), currentSize, currentColor];
+	const dataProduct = [props.title, priceUpdated, currentSize, currentColor];
 	const dataImage = [props.title, props.name, currentColor];
 	const dataProductForm = [currentColor, currentSize];
 
@@ -30,7 +27,7 @@ const Product = (props) => {
 			<div>
 				<header>
 					<h2 className={styles.name}>{props.title}</h2>
-					<span className={styles.price}>Price: {getPrice()}$</span>
+					<span className={styles.price}>Price: {priceUpdated}$</span>
 				</header>
 				<ProductForm
 					setCurrentSize={setCurrentSize}
