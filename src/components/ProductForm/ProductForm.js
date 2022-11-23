@@ -10,14 +10,20 @@ const ProductForm = (props) => {
 			<OptionSize
 				setCurrentSize={props.setCurrentSize}
 				sizes={props.sizes}
-				dataProductForm={props.dataProductForm}
+				currentSize={props.currentSize}
 			/>
 			<OptionColor
 				colors={props.colors}
-				dataProductForm={props.dataProductForm}
+				currentColor={props.currentColor}
 				setCurrentColor={props.setCurrentColor}
 			/>
-			<Button dataProduct={props.dataProduct} className={styles.button}>
+			<Button
+				title={props.title}
+				priceUpdated={props.priceUpdated}
+				currentSize={props.currentSize}
+				currentColor={props.currentColor}
+				className={styles.button}
+			>
 				<span className='fa fa-shopping-cart' />
 			</Button>
 		</form>
@@ -27,10 +33,12 @@ const ProductForm = (props) => {
 ProductForm.propTypes = {
 	setCurrentSize: PropTypes.func.isRequired,
 	setCurrentColor: PropTypes.func.isRequired,
-	dataProduct: PropTypes.array.isRequired,
-	dataProductForm: PropTypes.array.isRequired,
 	sizes: PropTypes.array.isRequired,
 	colors: PropTypes.array.isRequired,
+	currentSize: PropTypes.string.isRequired,
+	currentColor: PropTypes.string.isRequired,
+	priceUpdated: PropTypes.number.isRequired,
+	title: PropTypes.string.isRequired,
 };
 
 export default ProductForm;

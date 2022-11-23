@@ -7,10 +7,10 @@ const Button = (props) => {
 		e.preventDefault();
 		console.log('Summary');
 		console.log('=============');
-		console.log('Name:', props.dataProduct[0]);
-		console.log('Price:', props.dataProduct[1]);
-		console.log('Size:', props.dataProduct[2]);
-		console.log('Color:', props.dataProduct[3]);
+		console.log('Name:', props.title);
+		console.log('Price:', props.priceUpdated);
+		console.log('Size:', props.currentSize);
+		console.log('Color:', props.currentColor);
 	};
 	return (
 		<button
@@ -23,7 +23,11 @@ const Button = (props) => {
 };
 
 Button.propTypes = {
-	dataProduct: PropTypes.array.isRequired,
+	title: PropTypes.string.isRequired,
+	priceUpdated: PropTypes.number.isRequired,
+	currentSize: PropTypes.string.isRequired,
+	currentColor: PropTypes.string.isRequired,
+	className: PropTypes.string.isRequired,
 };
 
 export default Button;

@@ -17,13 +17,13 @@ const Product = (props) => {
 		}
 	}, [currentSize, props.sizes, props.basePrice]);
 
-	const dataProduct = [props.title, priceUpdated, currentSize, currentColor];
-	const dataImage = [props.title, props.name, currentColor];
-	const dataProductForm = [currentColor, currentSize];
-
 	return (
 		<article className={styles.product}>
-			<ProductImage dataImage={dataImage} />
+			<ProductImage
+				name={props.name}
+				title={props.title}
+				currentColor={currentColor}
+			/>
 			<div>
 				<header>
 					<h2 className={styles.name}>{props.title}</h2>
@@ -32,8 +32,10 @@ const Product = (props) => {
 				<ProductForm
 					setCurrentSize={setCurrentSize}
 					setCurrentColor={setCurrentColor}
-					dataProduct={dataProduct}
-					dataProductForm={dataProductForm}
+					title={props.title}
+					priceUpdated={priceUpdated}
+					currentSize={currentSize}
+					currentColor={currentColor}
 					sizes={props.sizes}
 					colors={props.colors}
 				/>
@@ -47,7 +49,7 @@ Product.propTypes = {
 	basePrice: PropTypes.number.isRequired,
 	colors: PropTypes.array.isRequired,
 	sizes: PropTypes.array.isRequired,
-	//props.name
+	name: PropTypes.string.isRequired,
 };
 
 export default Product;

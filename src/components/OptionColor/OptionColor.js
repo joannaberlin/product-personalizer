@@ -19,7 +19,7 @@ const OptionColor = (props) => {
 							type='button'
 							className={clsx(
 								prepareColorClassName(item),
-								item === props.dataProductForm[0] && styles.active
+								item === props.currentColor && styles.active
 							)}
 						></button>
 					</li>
@@ -32,7 +32,7 @@ const OptionColor = (props) => {
 OptionColor.propTypes = {
 	setCurrentColor: PropTypes.func.isRequired,
 	colors: PropTypes.array.isRequired,
-	dataProductForm: PropTypes.array.isRequired,
+	currentColor: PropTypes.string.isRequired,
 };
 
 export default OptionColor;
