@@ -47,6 +47,7 @@ Product.propTypes = {
 	basePrice: PropTypes.number.isRequired,
 	colors: PropTypes.array.isRequired,
 	sizes: PropTypes.array.isRequired,
+	//props.name
 };
 
 export default Product;

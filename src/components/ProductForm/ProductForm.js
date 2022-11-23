@@ -7,13 +7,11 @@ import PropTypes from 'prop-types';
 const ProductForm = (props) => {
 	return (
 		<form>
-			{/* tu component OptionSize */}
 			<OptionSize
 				setCurrentSize={props.setCurrentSize}
 				sizes={props.sizes}
 				dataProductForm={props.dataProductForm}
 			/>
-			{/* tu component OptionColor */}
 			<OptionColor
 				colors={props.colors}
 				dataProductForm={props.dataProductForm}

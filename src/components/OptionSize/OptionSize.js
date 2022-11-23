@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import styles from '../ProductForm/Options.module.scss';
+import styles from './OptionSize.module.scss';
 import PropTypes from 'prop-types';
 
 const OptionSize = (props) => {
